@@ -1,95 +1,103 @@
-set nocompatible          " We're running Vim, not Vi!
-syntax on                 " Enable syntax highlighting
-filetype plugin indent on " Enable filetype-specific indenting and plugins
+" --------------------------------------------------------------
+" File:    .vimrc: vim editor customizations
+" Author:  Allen Fair
+" Date:    May 29, 2009
+" License: Creative Commons
+" Plugins:
+"   matchit: http://www.vim.org/scripts/script.php?script_id=39
+"   vcscommand: http://www.vim.org/scripts/script.php?script_id=90
+"   blackboard theme: http://www.vim.org/scripts/script.php?script_id=2280
+"   snippetsemu: http://www.vim.org/scripts/script.php?script_id=1318
+"   nerdtree: http://www.vim.org/scripts/script.php?script_id=1658
+"   fuzzyfinder: http://www.vim.org/scripts/script.php?script_id=1984
+"   fuzzyfindertextmate: http://github.com/jamis/fuzzyfinder_textmate/tree/master
+"     ./configure --prefix=$HOME/vim7 --enable-rubyinterp && make install
+"     gem install --source=http://gems.github.com jamis-fuzzy_file_finder
+" --------------------------------------------------------------
 
-" Load matchit (% to bounce from do to end, etc.)
-runtime! macros/matchit.vim
+" Turn on Full-featured VIM
+  set nocompatible                " We're running Vim, not Vi!
+  syntax on                       " Enable syntax highlighting	
+  syntax sync minlines=300        " How many lines to be used in to determine coloring
+  filetype plugin indent on       " Enable filetype-specific indenting and plugins
+  set hidden                      " Lets unsaved buffer be hidden
 
-augroup myfiletypes
-  " Clear old autocmds in group
-  autocmd!
-  " autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,eruby,yaml,rhtml,erb set ai sw=2 sts=2 et
-  autocmd FileType php,tpl,html set tabstop=2
-augroup END
+" Plugin initialization and mapping
+  runtime! macros/matchit.vim     " matchit: Use % to locate begin/end matches
+  filetype plugin indent on
+  " NERDTree adds a file navigation tree pane on the left
+  map <Leader>f :NERDTree<CR>
+  " FuzzyFinderTextMate - Load a file by fuzzy naming (Like in Textmate)
+  map <Leader>t :FuzzyFinderTextMate<CR> 
 
-set autoindent
-set showcmd
-" highlight matches
-set hlsearch
+" Screen Setup
+  set wrap                        " Line wrapping: wrap, nowrap
+  set number                      " Line numbering: num, nonumber
+  set showcmd                     " Show partial Command on last line
+  set ruler                       " Show cursor position on last line: noruler
+  set showtabline=1               " Tabs line: 0=Never 1=When >1 tabs open 2=Always
+  set background=dark             " Adjust coloring: dark, light
+  set virtualedit=                " Allows Cursor past EOL: '', block, insert, all, onemore
+  map <Leader>n :set invnumber<CR>
+  map <Leader>w :set invwrap<CR>
 
-"indenting: note the commands to use before pasting code
-"       autocmd FileType php,pl filetype plugin indent on
-filetype plugin indent on
-"set paste
-"set nopaste
+" GUI or Text Mode
+  if has("giu_running")
+    set guioptions-=T             " Turn off Toolbar
+    "colorscheme railscasts
+    "colorscheme vividchalk
+  else  
+    set mouse=a                     " Mouse: n=normal v=visuali=insert c=cmdline a=all
+    set clipboard=autoselect        " unamed=default, autoselect=system
+    "colorscheme vibrantink
+    "colorscheme elflord
+  endif
 
-" From http://wiki.rubyonrails.org/rails/pages/HowtoUseVimWithRails
-set nocompatible
-filetype plugin indent on
-" Load matchit (% to bounce from do to end, etc.)
-runtime! macros/matchit.vim
-augroup myfiletypes
-  " Clear old autocmds in group
-  autocmd!
-  " autoindent with two spaces, always expand tabs
-  autocmd FileType perl,php set ai sw=2 sts=2 et smartindent
-  autocmd FileType ruby,eruby,yaml,erb,rhtml set ai sw=2 sts=2 et
-  autocmd FileType ruby,eruby,yaml,erb,rhtml set tabstop=2 smartindent
-  autocmd FileType tpl,html set ai sw=2 sts=2 et smartindent tabstop=2
-" autocmd FileType tpl,html set tabstop=2
-  autocmd FileType css set smartindent tabstop=2
-  autocmd FileType ruby iab def def<cr>end<esc>-A
-augroup END
+" Diff Mode
+  if &diff                        " Only when vim started in diff mote (vimdiff, -d)
+    set diffopt+=iwhite           " Ignore white space differences
+    " Map \g to GET from other version, \p to PUT to other version
+    map <Leader>g :diffget<CR>
+    map <Leader>p :diffput<CR>
+  endif
 
-" Sets F11 to invertpaste. so F11 + i + shift+insert/paste + Esc + F11
-map <F11> :set invpaste<CR> 
-map <F10> :set invnu<CR> 
-map <F6> :set invnu<CR> 
-map <F9> :w !perl -cw<CR> 
-map <C-o> :w !perl -cw<CR> 
-map <C-n> :set invnu<CR>
-map <C-h> :set invhlsearch<CR>
-map <C-p> :set invpaste<CR>
-map <C-q> :NERDTree<CR>
+" Search Controls
+  set hlsearch                    " Highlights search terms: hls, nohls
+  set ignorecase                  " Ignore Case on search: ignorecase, noignorecase
+  set smartcase                   " When searching with uppercase, turns off ignorecase
+  set incsearch                   " Incremental search while you are typing
+  map <Leader>h :set invhlsearch<CR>
 
-set background=dark
-"colorscheme vividchalk
-"colorscheme vibrantink
-"colorscheme elflord
-"colorscheme railscasts
+" Indenting, Typing, and Pasting Controls
+  set autoindent                  " Auto: autoindent, noautoindent
+  set smartindent                 " For C-style languages: nosmartindent
+  set wildmode=longest,full       " File tab completion like bash
+  map <Leader>p :set invpaste<CR>
 
-" Macbook key bindings
-"set t_ku=[A
-"set t_kd=[B
-"set t_kr=[C
-"set t_kl=[D
+" Abbreviations and common typing error corrections 
+  ab cofirm confirm
+  ab subscibe subscribe
+  ab subsciber subscriber
+  ab subsc subscriber
 
-" Typo corrections, compliments of Omar
-:ab cofirm confirm
-:ab subscibe subscribe
-:ab subsciber subscriber
-:ab subsc subscriber
+" File Type Specific Settings
+  augroup myfiletypes
+    " Clear old autocmds in group
+    autocmd!                      
+    " autoindent with two spaces, always expand tabs
+    autocmd FileType ruby,eruby,yaml,rhtml,erb set ai sw=2 sts=2 et
+    autocmd FileType php,tpl,html set tabstop=2
+    autocmd FileType perl,php set ai sw=2 sts=2 et smartindent
+    autocmd FileType ruby,eruby,yaml,erb,rhtml set tabstop=2 smartindent
+    autocmd FileType tpl,html set ai sw=2 sts=2 et smartindent tabstop=2
+    autocmd FileType css set smartindent tabstop=2
+    " Poor Man's Macros: def<cr> expands to full Ruby method definition
+    autocmd FileType ruby iab def def<cr>end<esc>-A
+  augroup END
 
-":syntax sync  minlines=100 maxlines=500
-"autocmd BufEnter * :syntax sync fromstart
-:syn sync minlines=300 
+" Completion
 
-":set number
-:set ruler
-:set hidden " allows buffer to be in background without first saving, remembers undo history
-:set ignorecase 
-:set smartcase
-:set showcmd
-":set virtualedit=all " Allows cursor to pass thru fluidic space
-:set incsearch "search as you type
-":set showmatch " cursor hops to matching ({[ when closing ]}) is typed
-:set mouse=a " enables mouse on terminals! c00l!
-":set ww=<,>,[,]
-:set wildmode=longest,full " File tab completion like bash
-
-set hlsearch
-function! SuperCleverTab()
+  function! SuperCleverTab()
     if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
         return "\<Tab>"
     else
@@ -102,12 +110,8 @@ function! SuperCleverTab()
             return "\<C-X>\<C-P>"
         endif
     endif
-endfunction
+  endfunction
 
-inoremap <F1> <C-R>=SuperCleverTab()<cr>
-"inoremap <Tab> <C-R>=SuperCleverTab()<cr>
-" For FuzzyFinder plaugin
-"map <C-t> :FuzzyFinderFile<CR> 
-" For FuzzyFinderTextMate plugin, requires --enable-rubyinterp, else use above
-map <C-t> :FuzzyFinderTextMate<CR> 
+  " Map <F1> (or <Tab>) to trigger word completion
+  inoremap <F1> <C-R>=SuperCleverTab()<cr>
 
