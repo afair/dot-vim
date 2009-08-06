@@ -46,11 +46,13 @@
     set guioptions-=T             " Turn off Toolbar
     "colorscheme railscasts
     "colorscheme vividchalk
+    "set guifont=*                " MacVim: pops up font dialog
   else  
     set mouse=a                     " Mouse: n=normal v=visuali=insert c=cmdline a=all
     set clipboard=autoselect        " unamed=default, autoselect=system
     "colorscheme vibrantink
     "colorscheme elflord
+    map <Leader>m :set mouse=<CR>
   endif
 
 " Diff Mode
