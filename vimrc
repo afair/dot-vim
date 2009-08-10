@@ -7,7 +7,7 @@
 "   matchit: http://www.vim.org/scripts/script.php?script_id=39
 "   vcscommand: http://www.vim.org/scripts/script.php?script_id=90
 "   blackboard theme: http://www.vim.org/scripts/script.php?script_id=2280
-"   snippetsemu: http://www.vim.org/scripts/script.php?script_id=1318
+"   snipMate: http://www.vim.org/scripts/script.php?script_id=2540
 "   nerdtree: http://www.vim.org/scripts/script.php?script_id=1658
 "   fuzzyfinder: http://www.vim.org/scripts/script.php?script_id=1984
 "   fuzzyfindertextmate: http://github.com/jamis/fuzzyfinder_textmate/tree/master
@@ -75,6 +75,7 @@
   map <Leader>p :set invpaste<CR>
 
 " Abbreviations and common typing error corrections 
+  ab teh the
   ab cofirm confirm
   ab subscibe subscribe
   ab subsciber subscriber
