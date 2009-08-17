@@ -1,6 +1,7 @@
-DOT-VIM: My ~/.vim directory containing plugins and customizations for the vim editor (version 7.0 and up).
+DOT-VIM: My ~/.vim directory containing plugins and customizations for the vim editor (version 7.0 and up). Helps building a vim environment for rails programming with tools similar to TextMate.
 
 For full support, configure and compile vim with ruby support.
+  ./configure --enable-rubyinterp <other options> && make install
 
 Installation: (*nix)
   cd 
@@ -8,12 +9,13 @@ Installation: (*nix)
   mv dot-vim .vim
   ln -s .vim/vimrc .vimrc
 
-Included parts
-  rails.vim
-  matchit
-  NERD_Tree    (:NERDTree to start)
-  fuzzyfinder
-  fuzzyfinder_textmate (Configured to ^T, needs ruby support compiled into vim)
+Included plugins
+  rails.vim - http://www.vim.org/scripts/script.php?script_id=1567
+  matchit - http://www.vim.org/scripts/script.php?script_id=39
+  NERD_Tree - http://www.vim.org/scripts/script.php?script_id=1658
+  fuzzyfinder - http://www.vim.org/scripts/script.php?script_id=1984
+  fuzzyfinder_textmate - http://github.com/jamis/fuzzyfinder_textmate/tree/master
+    (Configured to ^T, needs ruby support compiled into vim)
   misc. themes
   completion   (F1 configured to complete, you can change to TAB or other)
   sample .vimrc files from around the internets
