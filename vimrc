@@ -44,6 +44,7 @@
 " GUI or Text Mode
   if has("giu_running")
     set guioptions-=T             " Turn off Toolbar
+    colorscheme blackboard
     "colorscheme railscasts
     "colorscheme vividchalk
     "set guifont=*                " MacVim: pops up font dialog
@@ -114,6 +115,10 @@
     endif
   endfunction
 
-  " Map <F1> (or <Tab>) to trigger word completion
-  inoremap <F1> <C-R>=SuperCleverTab()<cr>
+" Key Mappings. <Leader> defaults to \. No Comments on end of map commands!
+    "let mapleader = "\"
+  " Reformat indentation in file
+    "map <Leader>f gg=G
+  " Word Completion Trigger
+    inoremap <F1> <C-R>=SuperCleverTab()<cr>
 
