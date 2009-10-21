@@ -25,10 +25,10 @@
 " Plugin initialization and mapping
   runtime! macros/matchit.vim     " matchit: Use % to locate begin/end matches
   filetype plugin indent on
+  " FuzzyFinderTextMate - Load a file by fuzzy naming (Like in Textmate) --
+  map <Leader>t :FuzzyFinderTextMate<CR> 
   " NERDTree adds a file navigation tree pane on the left
   map <Leader>f :NERDTree<CR>
-  " FuzzyFinderTextMate - Load a file by fuzzy naming (Like in Textmate)
-  map <Leader>t :FuzzyFinderTextMate<CR> 
 
 " Screen Setup
   set wrap                        " Line wrapping: wrap, nowrap
@@ -40,14 +40,21 @@
   set virtualedit=                " Allows Cursor past EOL: '', block, insert, all, onemore
   map <Leader>n :set invnumber<CR>
   map <Leader>w :set invwrap<CR>
+	" Tab Switching when <C-PgUp> isn't working on the Mac. nor is <C-,>
+  map <Leader>, :tabprev<CR>
+  map <Leader>. :tabnext<CR>
 
-" GUI or Text Mode
-  if has("giu_running")
+  " GUI or Text Mode
+    set t_Co=256
+    set guifont=Monaco:h13          " MacVim: ":set guifont=*" pops up font dialog
+    colorscheme vibrantink
+  if has("giu_running")           " This test is failing for MacVim
     set guioptions-=T             " Turn off Toolbar
-    colorscheme blackboard
+    "colorscheme blackboard
     "colorscheme railscasts
     "colorscheme vividchalk
-    "set guifont=*                " MacVim: pops up font dialog
+    set guifont=Monaco:h13          " MacVim: ":set guifont=*" pops up font dialog
+    map <Leader>+ :set guifont=Monaco:h13<CR>
   else  
     set mouse=a                     " Mouse: n=normal v=visuali=insert c=cmdline a=all
     set clipboard=autoselect        " unamed=default, autoselect=system
@@ -83,11 +90,14 @@
   ab subscibe subscribe
   ab subsciber subscriber
   ab subsc subscriber
+  ab privl privilege_level
 
 " File Type Specific Settings
+  set tabstop=2
   augroup myfiletypes
     " Clear old autocmds in group
     autocmd!                      
+    autocmd BufNewFile,BufRead *.html,*.tpl setf html
     " autoindent with two spaces, always expand tabs
     autocmd FileType ruby,eruby,yaml,rhtml,erb set ai sw=2 sts=2 et
     autocmd FileType php,tpl,html set tabstop=2
@@ -100,7 +110,6 @@
   augroup END
 
 " Completion
-
   function! SuperCleverTab()
     if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
         return "\<Tab>"
