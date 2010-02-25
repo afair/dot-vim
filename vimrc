@@ -28,7 +28,7 @@
   " FuzzyFinderTextMate - Load a file by fuzzy naming (Like in Textmate) --
   map <Leader>t :FuzzyFinderTextMate<CR> 
   " NERDTree adds a file navigation tree pane on the left
-  map <Leader>f :NERDTree<CR>
+  map <Leader>f :NERDTreeToggle<CR>
 
 " Screen Setup
   set wrap                        " Line wrapping: wrap, nowrap
