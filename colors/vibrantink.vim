@@ -27,24 +27,25 @@ endif
 let g:colors_name = "vibrantink"
 
 if has("gui_running")
-    highlight Normal guifg=White   guibg=Black
-    highlight Cursor guifg=Black   guibg=Yellow
-    highlight Keyword guifg=#FF6600
-    highlight Define guifg=#FF6600
-    highlight Comment guifg=#9933CC
-    highlight Type guifg=White gui=NONE
-    highlight rubySymbol guifg=#339999 gui=NONE
-    highlight Identifier guifg=White gui=NONE
-    highlight rubyStringDelimiter guifg=#66FF00
-    highlight rubyInterpolation guifg=White
+    highlight Normal             guifg=#DDDDDD guibg=Black
+    highlight Cursor             guifg=Black   guibg=Yellow
+    highlight Keyword            guifg=#FF6600
+    highlight Define             guifg=#FF6600
+    highlight Comment            guifg=#9933CC
+    highlight Type               guifg=White   gui=NONE
+    highlight rubySymbol         guifg=#339999 gui=NONE
+    highlight Identifier         guifg=White   gui=NONE
+    highligh rubyStringDelimiter guifg=#66FF00
+    highlight rubyInterpolation  guifg=White
     highlight rubyPseudoVariable guifg=#339999
-    highlight Constant guifg=#FFEE98
-    highlight Function guifg=#FFCC00 gui=NONE
-    highlight Include guifg=#FFCC00 gui=NONE
-    highlight Statement guifg=#FF6600 gui=NONE
-    highlight String guifg=#66FF00
-    highlight Search guibg=White
-    highlight CursorLine guibg=#323300
+    highlight Constant           guifg=#FFEE98
+    highlight Function           guifg=#FFCC00 "gui=NONE
+    highlight Include            guifg=#FFCC00 gui=NONE
+    highlight Statement          guifg=#FF6600 gui=NONE
+    highlight String             guifg=#66FF00
+    highlight Search             guifg=White   guibg=#888888
+    highlight CursorLine         guibg=#323300
+    highlight LineNr             guifg=#888888 guibg=#111111
 else
     set t_Co=256
     highlight Normal ctermfg=White ctermbg=Black 
@@ -63,6 +64,7 @@ else
     highlight Include ctermfg=220 
     highlight Statement ctermfg=202
     highlight String ctermfg=82 
-    highlight Search ctermbg=White 
+    highlight Search ctermbg=155 
     highlight CursorLine cterm=NONE ctermbg=235
+    highlight LineNr ctermfg=8
 endif
