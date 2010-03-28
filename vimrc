@@ -51,7 +51,7 @@
   else  
     set mouse=a                     " Mouse: n=normal v=visuali=insert c=cmdline a=all
     set clipboard=autoselect        " unamed=default, autoselect=system
-    "colorscheme vibrantink
+    colorscheme vibrantink
     "colorscheme elflord
     map <Leader>m :set mouse=<CR>
   endif
