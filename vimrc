@@ -124,11 +124,4 @@
         endif
     endif
   endfunction
-
-" Key Mappings. <Leader> defaults to \. No Comments on end of map commands!
-    "let mapleader = "\"
-  " Reformat indentation in file
-    "map <Leader>f gg=G
-  " Word Completion Trigger
-    inoremap <F1> <C-R>=SuperCleverTab()<cr>
-
+  inoremap <F1> <C-R>=SuperCleverTab()<cr>
