@@ -30,6 +30,14 @@
   " NERDTree adds a file navigation tree pane on the left
   map <Leader>f :NERDTreeToggle<CR>
 
+" Syntastic: http://www.vim.org/scripts/script.php?script_id=2736
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+	let g:syntastic_enable_signs=1
+	let g:syntastic_auto_loc_list=1
+	map <Leader>e :Errors<CR>
+
 " Screen Setup
   set wrap                        " Line wrapping: wrap, nowrap
   set number                      " Line numbering: num, nonumber
