@@ -124,4 +124,5 @@
         endif
     endif
   endfunction
-  inoremap <F1> <C-R>=SuperCleverTab()<cr>
+	"inoremap <F1> <C-R>=SuperCleverTab()<cr>
+  inoremap <F1> <C-P>
