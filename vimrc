@@ -4,15 +4,21 @@
 " Date:    May 29, 2009
 " License: Creative Commons
 " Plugins:
-"   matchit: http://www.vim.org/scripts/script.php?script_id=39
-"   vcscommand: http://www.vim.org/scripts/script.php?script_id=90
-"   blackboard theme: http://www.vim.org/scripts/script.php?script_id=2280
-"   snipMate: http://www.vim.org/scripts/script.php?script_id=2540
-"   nerdtree: http://www.vim.org/scripts/script.php?script_id=1658
+"   matchit:     http://www.vim.org/scripts/script.php?script_id=39
+"   vcscommand:  http://www.vim.org/scripts/script.php?script_id=90
+"   snipMate:    http://www.vim.org/scripts/script.php?script_id=2540
+"   nerdtree:    http://www.vim.org/scripts/script.php?script_id=1658
+"   syntastic:   http://www.vim.org/scripts/script.php?script_id=2736  
+"   autoclose:   http://www.vim.org/scripts/script.php?script_id=1849
+"   surround:    http://www.vim.org/scripts/script.php?script_id=1697
+"   git:         http://www.vim.org/scripts/script.php?script_id=1654
+"   endwise:     http://www.vim.org/scripts/script.php?script_id=2386
 "   fuzzyfinder: http://www.vim.org/scripts/script.php?script_id=1984
 "   fuzzyfindertextmate: http://github.com/jamis/fuzzyfinder_textmate/tree/master
 "     ./configure --prefix=$HOME/vim7 --enable-rubyinterp && make install
+"     Macports: sudo port intall vim +ruby
 "     gem install --source=http://gems.github.com jamis-fuzzy_file_finder
+"   blackboard theme: http://www.vim.org/scripts/script.php?script_id=2280
 " --------------------------------------------------------------
 
 " Turn on Full-featured VIM
