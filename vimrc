@@ -13,6 +13,7 @@
 "   surround:    http://www.vim.org/scripts/script.php?script_id=1697
 "   git:         http://www.vim.org/scripts/script.php?script_id=1654
 "   endwise:     http://www.vim.org/scripts/script.php?script_id=2386
+"   ack:         http://www.vim.org/scripts/script.php?script_id=2572
 "   fuzzyfinder: http://www.vim.org/scripts/script.php?script_id=1984
 "   fuzzyfindertextmate: http://github.com/jamis/fuzzyfinder_textmate/tree/master
 "     ./configure --prefix=$HOME/vim7 --enable-rubyinterp && make install
