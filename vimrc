@@ -121,7 +121,7 @@
     autocmd FileType tpl,html set ai sw=2 sts=2 et smartindent tabstop=2
     autocmd FileType css set smartindent tabstop=2
     " Poor Man's Macros: def<cr> expands to full Ruby method definition
-    autocmd FileType ruby iab def def<cr>end<esc>-A
+		" "autocmd FileType ruby iab def def<cr>end<esc>-A
   augroup END
 
 " Completion
