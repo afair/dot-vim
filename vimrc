@@ -124,20 +124,28 @@
 		" "autocmd FileType ruby iab def def<cr>end<esc>-A
   augroup END
 
-" Completion
-  function! SuperCleverTab()
-    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        if &omnifunc != ''
-            return "\<C-X>\<C-O>"
-        elseif &dictionary != ''
-            return "\<C-K>"
-        else
-            "return "\<C-N>" "this searched for keyword in ALL incl files!
-            return "\<C-X>\<C-P>"
-        endif
-    endif
-  endfunction
-	"inoremap <F1> <C-R>=SuperCleverTab()<cr>
+"" " Completion: This is no longer needed with new version 
+""  function! SuperCleverTab()
+""    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
+""        return "\<Tab>"
+""    else
+""        if &omnifunc != ''
+""            return "\<C-X>\<C-O>"
+""        elseif &dictionary != ''
+""            return "\<C-K>"
+""        else
+""            "return "\<C-N>" "this searched for keyword in ALL incl files!
+""            return "\<C-X>\<C-P>"
+""        endif
+""    endif
+""  endfunction
+"" 	"inoremap <F1> <C-R>=SuperCleverTab()<cr>
+" set F1 as alternate Omnicompletion key (close to Textmate's Escape)
   inoremap <F1> <C-P>
+
+" -------------------------------------------------------
+" Stupid Vim Tricks
+" -------------------------------------------------------
+" Show tabs, trailing spaces and eol char on line, and show $ as red
+  " set list listchars=tab:>>,trail:*,eol:$
+	" hi nontext ctermfg=red
