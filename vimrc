@@ -53,6 +53,8 @@
   set showtabline=1               " Tabs line: 0=Never 1=When >1 tabs open 2=Always
   set background=dark             " Adjust coloring: dark, light
   set virtualedit=                " Allows Cursor past EOL: '', block, insert, all, onemore
+  set title                       " Updates Terminal title bar
+  set noerrorbells                " no beep
   map <Leader>n :set invnumber<CR>
   map <Leader>w :set invwrap<CR>
 	" Tab Switching when <C-PgUp> isn't working on the Mac. nor is <C-,>
