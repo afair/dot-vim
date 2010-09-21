@@ -53,6 +53,8 @@
   set showtabline=1               " Tabs line: 0=Never 1=When >1 tabs open 2=Always
   set background=dark             " Adjust coloring: dark, light
   set virtualedit=                " Allows Cursor past EOL: '', block, insert, all, onemore
+  set title                       " Updates Terminal title bar
+  set noerrorbells                " no beep
   map <Leader>n :set invnumber<CR>
   map <Leader>w :set invwrap<CR>
 	" Tab Switching when <C-PgUp> isn't working on the Mac. nor is <C-,>
@@ -121,23 +123,31 @@
     autocmd FileType tpl,html set ai sw=2 sts=2 et smartindent tabstop=2
     autocmd FileType css set smartindent tabstop=2
     " Poor Man's Macros: def<cr> expands to full Ruby method definition
-    autocmd FileType ruby iab def def<cr>end<esc>-A
+		" "autocmd FileType ruby iab def def<cr>end<esc>-A
   augroup END
 
-" Completion
-  function! SuperCleverTab()
-    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
-        return "\<Tab>"
-    else
-        if &omnifunc != ''
-            return "\<C-X>\<C-O>"
-        elseif &dictionary != ''
-            return "\<C-K>"
-        else
-            "return "\<C-N>" "this searched for keyword in ALL incl files!
-            return "\<C-X>\<C-P>"
-        endif
-    endif
-  endfunction
-	"inoremap <F1> <C-R>=SuperCleverTab()<cr>
+"" " Completion: This is no longer needed with new version 
+""  function! SuperCleverTab()
+""    if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
+""        return "\<Tab>"
+""    else
+""        if &omnifunc != ''
+""            return "\<C-X>\<C-O>"
+""        elseif &dictionary != ''
+""            return "\<C-K>"
+""        else
+""            "return "\<C-N>" "this searched for keyword in ALL incl files!
+""            return "\<C-X>\<C-P>"
+""        endif
+""    endif
+""  endfunction
+"" 	"inoremap <F1> <C-R>=SuperCleverTab()<cr>
+" set F1 as alternate Omnicompletion key (close to Textmate's Escape)
   inoremap <F1> <C-P>
+
+" -------------------------------------------------------
+" Stupid Vim Tricks
+" -------------------------------------------------------
+" Show tabs, trailing spaces and eol char on line, and show $ as red
+  " set list listchars=tab:>>,trail:*,eol:$
+	" hi nontext ctermfg=red
