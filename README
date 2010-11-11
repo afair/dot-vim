@@ -19,5 +19,8 @@ Included plugins
   misc. themes
   completion   (F1 configured to complete, you can change to TAB or other)
   sample .vimrc files from around the internets
+	vim-haml http://github.com/tpope/vim-haml
+	vim-fugative - http://github.com/tpope/vim-fugitive
+	vimclojure - http://www.vim.org/scripts/script.php?script_id=2501
 
   Many thanks to those who contributed the above modules and the vim community!

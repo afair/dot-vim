@@ -40,6 +40,7 @@
 " Syntastic: http://www.vim.org/scripts/script.php?script_id=2736
   set statusline+=%#warningmsg#
   set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%{fugitive#statusline()}
   set statusline+=%*
 	let g:syntastic_enable_signs=1
 	let g:syntastic_auto_loc_list=1
@@ -78,6 +79,7 @@
     colorscheme vibrantink
     "colorscheme elflord
     map <Leader>m :set mouse=<CR>
+    map <Leader>M :set mouse=a<CR>
   endif
 
 " Diff Mode
@@ -108,6 +110,7 @@
   ab subsciber subscriber
   ab subsc subscriber
   ab privl privilege_level
+  ab udpate update
 
 " File Type Specific Settings
   set tabstop=2
