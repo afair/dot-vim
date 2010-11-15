@@ -20,6 +20,8 @@
 "     Macports: sudo port intall vim +ruby
 "     gem install --source=http://gems.github.com jamis-fuzzy_file_finder
 "   blackboard theme: http://www.vim.org/scripts/script.php?script_id=2280
+"   NERD Commenter http://www.vim.org/scripts/script.php?script_id=1218
+"   VIM Taglist http://vim-taglist.sourceforge.net/
 " --------------------------------------------------------------
 
 " Turn on Full-featured VIM
@@ -38,6 +40,8 @@
   map <Leader>f :NERDTreeToggle<CR>
 	" TagList Toggles on F2. Requires "Exuberent CTags" installed.
 	map <F2> :TlistToggle<CR>
+	" NERD Commenter uses <Leader>c<Space> for this, I prefer Textmate's
+	map <Leader>/ <Plug>NERDCommenterToggle
 
 " Syntastic: http://www.vim.org/scripts/script.php?script_id=2736
   set statusline+=%#warningmsg#
