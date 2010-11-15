@@ -36,6 +36,8 @@
   map <Leader>t :FuzzyFinderTextMate<CR> 
   " NERDTree adds a file navigation tree pane on the left
   map <Leader>f :NERDTreeToggle<CR>
+	" TagList Toggles on F2. Requires "Exuberent CTags" installed.
+	map <F2> :TlistToggle<CR>
 
 " Syntastic: http://www.vim.org/scripts/script.php?script_id=2736
   set statusline+=%#warningmsg#
