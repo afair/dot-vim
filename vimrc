@@ -153,6 +153,7 @@
 "" 	"inoremap <F1> <C-R>=SuperCleverTab()<cr>
 " set F1 as alternate Omnicompletion key (close to Textmate's Escape)
   inoremap <F1> <C-P>
+	set include-=i
 
 " -------------------------------------------------------
 " Stupid Vim Tricks
