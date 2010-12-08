@@ -27,7 +27,7 @@ endif
 let g:colors_name = "vibrantink"
 
 if has("gui_running")
-    highlight Normal             guifg=#DDDDDD guibg=Black
+    highlight Normal             guifg=#DDDDDD guibg=#333333
     highlight Cursor             guifg=Black   guibg=Yellow
     highlight Keyword            guifg=#FF6600
     highlight Define             guifg=#FF6600
@@ -45,7 +45,7 @@ if has("gui_running")
     highlight String             guifg=#66FF00
     highlight Search             guifg=White   guibg=#888888
     highlight CursorLine         guibg=#323300
-    highlight LineNr             guifg=#888888 guibg=#111111
+    highlight LineNr             guifg=#888888 guibg=#222222
 else
     set t_Co=256
 		" perl -e 'foreach $i (0..255) {printf("\e[38;5;$i"."m%03d\e[0m ",$i); }'
