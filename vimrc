@@ -22,6 +22,9 @@
 "   blackboard theme: http://www.vim.org/scripts/script.php?script_id=2280
 "   NERD Commenter http://www.vim.org/scripts/script.php?script_id=1218
 "   VIM Taglist http://vim-taglist.sourceforge.net/
+"   bufexplorer: http://www.vim.org/scripts/script.php?script_id=42
+"   textobj-user: http://www.vim.org/scripts/script.php?script_id=2100
+"   textobj-rubyblock: http://www.vim.org/scripts/script.php?script_id=3382
 " --------------------------------------------------------------
 
 " Turn on Full-featured VIM
@@ -40,6 +43,8 @@
   map <Leader>f :NERDTreeToggle<CR>
 	" TagList Toggles on F2. Requires "Exuberent CTags" installed.
 	map <F2> :TlistToggle<CR>
+	" BufExplorer: \be \bs or \bv (exploror, h-split, v-split)
+	map <F3> :BufExplorerVerticalSplit<CR>
 	" NERD Commenter uses <Leader>c<Space> for this, I prefer Textmate's
 	map <Leader>/ <Plug>NERDCommenterToggle
 
