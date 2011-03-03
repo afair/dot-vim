@@ -1,1 +1,2 @@
 textobj-rubyblock.vba: call delete('/Users/allen/.vim/plugin/textobj/rubyblock.vim')|call delete('/Users/allen/.vim/doc/textobj-rubyblock.txt')
+supertab.vba: call delete('/Users/allen/.vim/doc/supertab.txt')|call delete('/Users/allen/.vim/plugin/supertab.vim')

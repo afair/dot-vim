@@ -157,7 +157,8 @@
 ""  endfunction
 "" 	"inoremap <F1> <C-R>=SuperCleverTab()<cr>
 " set F1 as alternate Omnicompletion key (close to Textmate's Escape)
-  inoremap <F1> <C-P>
+  "inoremap <F1> <C-P>
+  inoremap <F1> <C-x><C-n>
 	set include-=i
 	set include=
 
