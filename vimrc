@@ -38,7 +38,8 @@
   runtime! macros/matchit.vim     " matchit: Use % to locate begin/end matches
   filetype plugin indent on
   " FuzzyFinderTextMate - Load a file by fuzzy naming (Like in Textmate) --
-  map <Leader>t :FuzzyFinderTextMate<CR> 
+  map <Leader>t :tabnew<CR>:FuzzyFinderTextMate<CR> 
+  map <Leader>T :FuzzyFinderTextMate<CR> 
   " NERDTree adds a file navigation tree pane on the left
   map <Leader>f :NERDTreeToggle<CR>
 	" TagList Toggles on F2. Requires "Exuberent CTags" installed.
