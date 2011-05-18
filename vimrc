@@ -57,6 +57,7 @@
 	let g:syntastic_enable_signs=1
 	let g:syntastic_auto_loc_list=1
 	map <Leader>e :Errors<CR>
+	map <Leader>l :lNext<CR>
 
 " Screen Setup
   set wrap                        " Line wrapping: wrap, nowrap
