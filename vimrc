@@ -73,6 +73,8 @@
 	" Tab Switching when <C-PgUp> isn't working on the Mac. nor is <C-,>
   map <Leader>, :tabprev<CR>
   map <Leader>. :tabnext<CR>
+	" Jump to next error location
+  map <Leader>l :lnext<CR>
 
   " GUI or Text Mode
     set t_Co=256

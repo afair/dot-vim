@@ -50,8 +50,8 @@ else
     set t_Co=256
 		" perl -e 'foreach $i (0..255) {printf("\e[38;5;$i"."m%03d\e[0m ",$i); }'
 		" gray: 236
-    "highlight Normal ctermfg=White ctermbg=Black
-    highlight Normal ctermfg=White ctermbg=237
+    highlight Normal ctermfg=White ctermbg=Black
+    "highlight Normal ctermfg=White ctermbg=237
     highlight Cursor ctermfg=Black ctermbg=Yellow 
     highlight Keyword ctermfg=202 
     highlight Define ctermfg=202 
