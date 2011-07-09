@@ -97,14 +97,6 @@
     map <Leader>M :set mouse=a<CR>
   endif
 
-" Diff Mode
-  if &diff                        " Only when vim started in diff mote (vimdiff, -d)
-    set diffopt+=iwhite           " Ignore white space differences
-    " Map \g to GET from other version, \p to PUT to other version
-    map <Leader>g :diffget<CR>
-    map <Leader>p :diffput<CR>
-  endif
-
 " Search Controls
   set hlsearch                    " Highlights search terms: hls, nohls
   set ignorecase                  " Ignore Case on search: ignorecase, noignorecase
@@ -117,6 +109,14 @@
   set smartindent                 " For C-style languages: nosmartindent
   set wildmode=longest,full       " File tab completion like bash
   map <Leader>p :set invpaste<CR>
+
+" Diff Mode
+  if &diff                        " Only when vim started in diff mote (vimdiff, -d)
+    set diffopt+=iwhite           " Ignore white space differences
+    " Map \g to GET from other version, \p to PUT to other version
+    map <Leader>g :diffget<CR>
+    map <Leader>p :diffput<CR>
+  endif
 
 " Abbreviations and common typing error corrections 
   ab teh the
@@ -165,6 +165,9 @@
   inoremap <F1> <C-x><C-n>
 	set include-=i
 	set include=
+
+	" Define which ruby to use for syntastic with RVM
+	let g:ruby_path = "/Users/allen/.rvm/rubies/default/bin"
 
 " -------------------------------------------------------
 " Stupid Vim Tricks
