@@ -1,7 +1,7 @@
 "============================================================================
-"File:        perl.vim
+"File:        tex.vim
 "Description: Syntax checking plugin for syntastic.vim
-"Maintainer:  Anthony Carapetis <anthony.carapetis at gmail dot com>
+"Maintainer:  Martin Grenfell <martin.grenfell at gmail dot com>
 "License:     This program is free software. It comes without any warranty,
 "             to the extent permitted by applicable law. You can redistribute
 "             it and/or modify it under the terms of the Do What The Fuck You
@@ -9,27 +9,18 @@
 "             See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 "============================================================================
-
-" This checker requires efm_perl.pl, which is distributed with Vim version
-" seven and greater, as far as I know.
-
-if exists("loaded_perl_syntax_checker")
+if exists("loaded_tex_syntax_checker")
     finish
 endif
-let loaded_perl_syntax_checker = 1
+let loaded_tex_syntax_checker = 1
 
-"bail if the user doesnt have perl installed
-if !executable("perl")
+"bail if the user doesnt have lacheck installed
+if !executable("lacheck")
     finish
 endif
 
-if !exists("g:syntastic_perl_efm_program")
-    let g:syntastic_perl_efm_program = 'perl '.$VIMRUNTIME.'/tools/efm_perl.pl -c'
-endif
-
-function! SyntaxCheckers_perl_GetLocList()
-    let makeprg = g:syntastic_perl_efm_program . ' ' . shellescape(expand('%'))
-    let errorformat =  '%f:%l:%m'
-
+function! SyntaxCheckers_tex_GetLocList()
+    let makeprg = 'lacheck '.shellescape(expand('%'))
+    let errorformat =  '%-G** %f:,%E"%f"\, line %l: %m'
     return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
 endfunction

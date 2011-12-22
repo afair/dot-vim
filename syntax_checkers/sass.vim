@@ -19,13 +19,20 @@ if !executable("sass")
     finish
 endif
 
+let g:syntastic_sass_imports = 0
+
 function! SyntaxCheckers_sass_GetLocList()
-    let output = system("sass -c " . expand("%"))
-    if v:shell_error != 0
-        "sass only outputs the first error, so parse it ourselves
-        let line = substitute(output, '^Syntax error on line \(\d*\):.*', '\1', '')
-        let msg = substitute(output, '^Syntax error on line \d*:\(.*\)', '\1', '')
-        return [{'lnum' : line, 'text' : msg, 'bufnr': bufnr(""), 'type': 'E' }]
+    "use compass imports if available
+    if g:syntastic_sass_imports == 0 && executable("compass")
+        let g:syntastic_sass_imports = "--compass"
+    else
+        let g:syntastic_sass_imports = ""
     endif
-    return []
+
+    let makeprg='sass '.g:syntastic_sass_imports.' --check '.shellescape(expand('%'))
+    let errorformat = '%ESyntax %trror:%m,%C        on line %l of %f,%Z%.%#'
+    let errorformat .= ',%Wwarning on line %l:,%Z%m,Syntax %trror on line %l: %m'
+    let loclist = SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
+
+    return loclist
 endfunction

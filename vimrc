@@ -25,6 +25,7 @@
 "   bufexplorer: http://www.vim.org/scripts/script.php?script_id=42
 "   textobj-user: http://www.vim.org/scripts/script.php?script_id=2100
 "   textobj-rubyblock: http://www.vim.org/scripts/script.php?script_id=3382
+"   lusty-explorer: http://www.vim.org/scripts/script.php?script_id=1890
 " --------------------------------------------------------------
 
 " Turn on Full-featured VIM
@@ -48,6 +49,8 @@
 	map <F3> :BufExplorerVerticalSplit<CR>
 	" NERD Commenter uses <Leader>c<Space> for this, I prefer Textmate's
 	map <Leader>/ <Plug>NERDCommenterToggle
+	map <Leader>s :set spell<CR>
+	map <Leader>S :set nospell<CR>
 
 " Syntastic: http://www.vim.org/scripts/script.php?script_id=2736
   set statusline+=%#warningmsg#
@@ -58,6 +61,8 @@
 	let g:syntastic_auto_loc_list=1
 	map <Leader>e :Errors<CR>
 	map <Leader>l :lNext<CR>
+	let g:ruby_path = "/Users/allen/.rvm/rubies/default/bin"
+
 
 " Screen Setup
   set wrap                        " Line wrapping: wrap, nowrap
@@ -126,6 +131,7 @@
   ab subsc subscriber
   ab privl privilege_level
   ab udpate update
+  ab biglsit biglist
 
 " File Type Specific Settings
   set tabstop=2
@@ -165,6 +171,7 @@
   inoremap <F1> <C-x><C-n>
 	set include-=i
 	set include=
+	"inoremap dput dput();<Left><Left>
 
 " -------------------------------------------------------
 " Stupid Vim Tricks

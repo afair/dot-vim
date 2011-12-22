@@ -1,5 +1,5 @@
 "============================================================================
-"File:        ruby.vim
+"File:        docbk.vim
 "Description: Syntax checking plugin for syntastic.vim
 "Maintainer:  Martin Grenfell <martin.grenfell at gmail dot com>
 "License:     This program is free software. It comes without any warranty,
@@ -9,24 +9,21 @@
 "             See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 "============================================================================
-if exists("loaded_ruby_syntax_checker")
+if exists("loaded_docbk_syntax_checker")
     finish
 endif
-let loaded_ruby_syntax_checker = 1
+let loaded_docbk_syntax_checker = 1
 
-"bail if the user doesnt have ruby installed
-if !executable("ruby")
+"bail if the user doesnt have tidy or grep installed
+if !executable("xmllint")
     finish
 endif
 
-function! SyntaxCheckers_ruby_GetLocList()
-    " we cannot set RUBYOPT on windows like that
-    if has('win32') || has('win64')
-        let makeprg = 'ruby -W1 -T1 -c '.shellescape(expand('%'))
-    else
-        let makeprg = 'RUBYOPT= ruby -W1 -c '.shellescape(expand('%'))
-    endif
-    let errorformat =  '%-GSyntax OK,%E%f:%l: syntax error\, %m,%Z%p^,%W%f:%l: warning: %m,%Z%p^,%W%f:%l: %m,%-C%.%#'
+function! SyntaxCheckers_docbk_GetLocList()
 
-    return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
+    let makeprg="xmllint --xinclude --noout --postvalid %"
+    let errorformat='%E%f:%l: parser error : %m,%W%f:%l: parser warning : %m,%E%f:%l:%.%# validity error : %m,%W%f:%l:%.%# validity warning : %m,%-Z%p^,%-C%.%#,%-G%.%#'
+    let loclist = SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
+
+    return loclist
 endfunction

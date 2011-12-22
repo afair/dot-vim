@@ -1,6 +1,7 @@
+
 "============================================================================
-"File:        haml.vim
-"Description: Syntax checking plugin for syntastic.vim
+"File:        scss.vim
+"Description: scss syntax checking plugin for syntastic
 "Maintainer:  Martin Grenfell <martin.grenfell at gmail dot com>
 "License:     This program is free software. It comes without any warranty,
 "             to the extent permitted by applicable law. You can redistribute
@@ -9,18 +10,18 @@
 "             See http://sam.zoy.org/wtfpl/COPYING for more details.
 "
 "============================================================================
-if exists("loaded_haml_syntax_checker")
+if exists("loaded_scss_syntax_checker")
     finish
 endif
-let loaded_haml_syntax_checker = 1
+let loaded_scss_syntax_checker = 1
 
-"bail if the user doesnt have the haml binary installed
-if !executable("haml")
+"bail if the user doesnt have the sass binary installed
+if !executable("sass")
     finish
 endif
 
-function! SyntaxCheckers_haml_GetLocList()
-    let makeprg = "haml -c " . shellescape(expand("%"))
-    let errorformat = 'Haml error on line %l: %m,Syntax error on line %l: %m,%-G%.%#'
-    return SyntasticMake({ 'makeprg': makeprg, 'errorformat': errorformat })
+runtime syntax_checkers/sass.vim
+
+function! SyntaxCheckers_scss_GetLocList()
+    return SyntaxCheckers_sass_GetLocList()
 endfunction
