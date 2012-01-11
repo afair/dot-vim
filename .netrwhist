@@ -1,7 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =6
 let g:netrw_dirhist_1='/Users/allen/salsa/etc/ddl'
 let g:netrw_dirhist_2='/Users/allen/src/cyberdesk31'
 let g:netrw_dirhist_3='/Users/allen/.rvm/gems/ruby-1.9.2-p180/gems/resque-1.18.2'
 let g:netrw_dirhist_4='/Users/allen/src/salsa/etc/ddl'
 let g:netrw_dirhist_5='/Users/allen/src/resque-perl/lib/Resque'
+let g:netrw_dirhist_6='/Users/allen/.rvm/gems/ruby-1.9.3-p0@salsaui/bundler/gems/simple_form-2296d25ce36d'
